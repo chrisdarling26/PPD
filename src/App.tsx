@@ -1,5 +1,3 @@
-import { useState } from 'react'
-
 const navigation = ['Edu-Mobil', 'Contact', 'Gallery', 'Team']
 
 function ProfileIcon() {
@@ -12,8 +10,6 @@ function ProfileIcon() {
 }
 
 function SiteHeader() {
-  const [menuOpen, setMenuOpen] = useState(false)
-
   return (
     <header className="site-header">
       <a className="brand" href="/" aria-label="Return to the landing page">
@@ -27,24 +23,7 @@ function SiteHeader() {
         </strong>
       </a>
 
-      <button
-        className="menu-toggle"
-        type="button"
-        aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
-        aria-expanded={menuOpen}
-        aria-controls="main-navigation"
-        onClick={() => setMenuOpen((open) => !open)}
-      >
-        <span />
-        <span />
-        <span />
-      </button>
-
-      <nav
-        id="main-navigation"
-        aria-label="Main navigation"
-        className={`navigation${menuOpen ? ' is-open' : ''}`}
-      >
+      <nav aria-label="Main navigation" className="navigation">
         {navigation.map((item) => {
           const href =
             item === 'Edu-Mobil'
@@ -214,33 +193,31 @@ function EduMobilPage() {
         />
       </section>
 
-      <div className="edu-cta-grid">
-        <section className="school-review">
-          <p>
-            We’ve visited a number of schools already, check out a review from our friends at St
-            Kilians Primary school{' '}
-            <a
-              href="https://www.kilians.com/news/2025/our-primary-school-green-school-committee-enjoys-a-special-visit-from-precious-plastic-dublin/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              here
-            </a>
-            .
-          </p>
-        </section>
+      <section className="school-review">
+        <p>
+          We’ve visited a number of schools already, check out a review from our friends at St
+          Kilians Primary school{' '}
+          <a
+            href="https://www.kilians.com/news/2025/our-primary-school-green-school-committee-enjoys-a-special-visit-from-precious-plastic-dublin/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            here
+          </a>
+          .
+        </p>
+      </section>
 
-        <section className="contact-callout">
-          <p>
-            If you’re a primary school teacher, parent, member of a social group, or just interested
-            to learn more about the mobile experience, please get in touch{' '}
-            <a className="contact-link" href="/contact">
-              here
-            </a>
-            … we’d love to hear from!
-          </p>
-        </section>
-      </div>
+      <section className="contact-callout">
+        <p>
+          If you’re a primary school teacher, parent, member of a social group, or just interested
+          to learn more about the mobile experience, please get in touch{' '}
+          <a className="contact-link" href="/contact">
+            here
+          </a>
+          … we’d love to hear from!
+        </p>
+      </section>
     </div>
   )
 }
